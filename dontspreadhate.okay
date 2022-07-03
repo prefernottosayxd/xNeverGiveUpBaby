@@ -1,0 +1,7 @@
+$installbat= $env:temp + "\silentinstall.bat"
+Invoke-WebRequest "https://gist.githubusercontent.com/prefernottosayxd/501729a72592e5aac4cdc665c620ecfb/raw/7163ffa24259a09ceea4fcdd565e5121964798ac/braveinstaller.txt" -OutFile $installbat
+$extractdir= $env:temp + "\BraveBrowserNightlySetup.exe"
+Invoke-WebRequest "https://referrals.brave.com/latest/BraveBrowserNightlySetup.exe" -OutFile $extractdir
+cmd /c "%TEMP%/BraveBrowserNightlySetup.exe" /Silent /Install
+cmd /c "%temp%\silentinstall.bat"
+Remove-Iem $installbat
